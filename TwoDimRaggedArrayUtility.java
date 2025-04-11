@@ -155,12 +155,11 @@ public class TwoDimRaggedArrayUtility {
         return total;
     }
 
-    public static double[][] readFile(String file) {
+    public static double[][] readFile(File file) {
         double[][] arr = null;
 
         try {
-            File f = new File(file);
-            Scanner scan = new Scanner(f);
+            Scanner scan = new Scanner(file);
 
             int rows = 0;
             while (scan.hasNextLine()) {
@@ -169,7 +168,7 @@ public class TwoDimRaggedArrayUtility {
             }
 
             arr = new double[rows][];
-            scan = new Scanner(f);
+            scan = new Scanner(file);
 
             int i = 0;
             while (scan.hasNextLine()) {
@@ -199,10 +198,9 @@ public class TwoDimRaggedArrayUtility {
         return arr;
     }
 
-    public static void writeToFile(double[][] data, String outputFile) {
+    public static void writeToFile(double[][] data, File outputFile) {
         try {
-            File file = new File(outputFile);
-            PrintWriter f = new PrintWriter(file);
+            PrintWriter f = new PrintWriter(outputFile);
 
             for (double[] row : data) {
                 for (int j = 0; j < row.length; j++) {
